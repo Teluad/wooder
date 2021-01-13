@@ -1,0 +1,714 @@
+header {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+}
+.background {
+	&__row {
+		display: flex;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+	&__left {
+		position: relative;
+		width: 55%;
+		height: 100%;
+		z-index: -2;
+		&::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.618);
+			z-index: -1;
+		}
+	}
+
+	&__right {
+		position: relative;
+		width: 45%;
+		height: 105%;
+		z-index: -2;
+		&::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.618);
+			z-index: -1;
+		}
+	}
+}
+.ibg {
+}
+.container {
+}
+
+.menu {
+	display: flex;
+	height: 84px;
+	align-items: center;
+	margin: 0px 0px 0px 25%;
+	@media (max-width: 1213px) {
+		margin: 0px 0px 0px 15%;
+	}
+	@media (max-width: 898px) {
+		margin: 0px 0px 0px 0px;
+	}
+	&__icon {
+		display: none;
+		@media (max-width: 798px) {
+			display: block;
+			position: absolute;
+			left: 30px;
+			width: 33px;
+			height: 18px;
+			z-index: 21;
+			cursor: pointer;
+			p {
+				opacity: 0.5;
+				font-family: "ProximaNova";
+				font-size: 15px;
+				font-weight: 700;
+				text-transform: uppercase;
+				color: #ffffff;
+				margin: 0px 0px 0px 40px;
+			}
+			span {
+				transition: 0.3s;
+				top: 7px;
+				left: 0px;
+				position: absolute;
+				width: 100%;
+				height: 1px;
+				background-color: #bea67c;
+				opacity: 0.5;
+				&:first-child {
+					top: -1px;
+				}
+				&:nth-child(2) {
+					top: auto;
+					bottom: 1px;
+				}
+			}
+			&.active {
+				span {
+					transform: scale(0);
+					background-color: #bea67c;
+					&:first-child {
+						transform: rotate(-45deg);
+						top: 8px;
+					}
+					&:nth-child(2) {
+						transform: rotate(45deg);
+						bottom: 9px;
+					}
+				}
+			}
+		}
+	}
+
+	&__logo {
+		position: relative;
+		font-family: "ProximaNova";
+		font-size: 36px;
+		line-height: 1.2;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.3em;
+		z-index: 21;
+		@media (max-width: 798px) {
+			position: absolute;
+			right: 20px;
+		}
+		@media (max-width: 498px) {
+			position: absolute;
+			right: 20px;
+			font-size: 25px;
+		}
+		& a {
+			color: #ffffff;
+		}
+		&::after {
+			content: "";
+			position: absolute;
+			top: 19px;
+			left: 45px;
+			width: 64px;
+			height: 4px;
+			background-color: #bea67c;
+			@media (max-width: 498px) {
+				top: 13px;
+				left: 30px;
+				width: 45px;
+			}
+		}
+	}
+
+	&__menu {
+		display: flex;
+		margin: 0px 0px 0px 100px;
+		@media (max-width: 1213px) {
+			margin: 0px 0px 0px 60px;
+		}
+		@media (max-width: 798px) {
+			margin: 0px 0px 0px 0px;
+			padding: 100px 0px 0px 0px;
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: -100%;
+			background-color: #000000;
+			display: flex;
+			justify-content: center;
+			z-index: 20;
+			transition: 0.3s;
+		}
+	}
+	&__menu.active {
+		left: 0;
+	}
+
+	&__list {
+		display: flex;
+		align-items: center;
+		@media (max-width: 798px) {
+			display: flex;
+			flex-direction: column;
+		}
+	}
+	&__box {
+		display: none;
+		@media (max-width: 798px) {
+			display: flex;
+			position: relative;
+			max-width: 100%;
+			height: 100%;
+			margin: 0px auto;
+		}
+	}
+	&__link {
+		opacity: 0.5;
+		font-family: "ProximaNova";
+		font-size: 15px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.025em;
+		margin: 0px 100px 0px 0px;
+		transition: 0.3s;
+		@media (max-width: 1213px) {
+			margin: 0px 60px 0px 0px;
+		}
+		@media (max-width: 798px) {
+			margin: 0px 0px 20px 0px;
+		}
+		& a {
+			color: #ffffff;
+			transition: 0.3s;
+			&:hover {
+				color: #bea67c;
+			}
+		}
+		&:hover {
+			opacity: 1;
+		}
+		&:last-child {
+			margin: 0px;
+		}
+	}
+
+	&__info {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 23px;
+		height: 23px;
+		font-size: 18px;
+		opacity: 0.5;
+		border: 1px solid #ffffff;
+		border-radius: 50%;
+		color: #ffffff;
+		position: absolute;
+		right: 110px;
+		z-index: 21;
+		@media (max-width: 1213px) {
+			right: 60px;
+		}
+		@media (max-width: 798px) {
+			position: relative;
+			right: 0px;
+		}
+		&:hover {
+			opacity: 1;
+			border: 1px solid #bea67c;
+			color: #bea67c;
+		}
+	}
+
+	&__lang {
+		display: block;
+		position: absolute;
+		right: 30px;
+		font-family: "ProximaNova";
+		font-size: 15px;
+		line-height: 1.2;
+		font-weight: 700;
+		text-transform: uppercase;
+		& a {
+			display: block;
+			color: #ffffff;
+			opacity: 0.5;
+		}
+		& a:last-child {
+			display: none;
+		}
+		&::after {
+			content: "";
+			position: absolute;
+			top: 7px;
+			right: -7px;
+			width: 0;
+			height: 0;
+			border-left: 4px solid transparent;
+			border-right: 4px solid transparent;
+			border-top: 5px solid #bea67c;
+		}
+	}
+}
+
+.lang {
+	background-color: transparent;
+}
+
+.setlang {
+	position: absolute;
+	right: 30px;
+	margin-left: 10px;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #ffffff;
+	z-index: 21;
+	@media (max-width: 798px) {
+		position: relative;
+		right: 0px;
+	}
+}
+.setlang__default {
+	cursor: pointer;
+	font-family: "ProximaNova";
+	text-transform: uppercase;
+	background: transparent;
+	border: none;
+	color: #ffffff;
+	opacity: 0.5;
+	font-weight: 700;
+	font-size: 15px;
+	transition: 0.25s ease;
+	position: relative;
+	&:after {
+		content: "";
+		opacity: 1;
+		position: absolute;
+		top: 7px;
+		right: -10px;
+		width: 0;
+		height: 0;
+		border-left: 4px solid transparent;
+		border-right: 4px solid transparent;
+		border-top: 5px solid #bea67c;
+		transition: 0.3s;
+	}
+	&.lang-click {
+		&:after {
+			content: "";
+			transform: rotate(-180deg);
+		}
+	}
+}
+
+.setlang__languages {
+	list-style-type: none;
+	visibility: hidden;
+	opacity: 0;
+	margin: 0;
+	padding: 0;
+	//display: none;
+	position: absolute;
+	left: 50%;
+	top: 0;
+	transform: translate(-50%, 0);
+	transition: 0.25s ease;
+	width: 50px;
+	text-align: center;
+	transition: 0.3s;
+	&.setting__languages-active {
+		visibility: visible;
+		opacity: 1;
+		//display: block;
+		top: 100%;
+		@media (max-width: 798px) {
+			top: 20px;
+		}
+	}
+}
+.setlang__link {
+	font-family: "ProximaNova";
+	font-size: 15px;
+	color: #ffffff;
+	opacity: 0.5;
+	font-size: 15px;
+	transition: 0.25s ease;
+	&:hover {
+		color: #bea67c;
+		opacity: 1;
+	}
+}
+.setlang__item {
+	padding: 5px 5px 0px;
+	&:last-child {
+		padding: 5px 5px 5px;
+	}
+}
+
+.content {
+	&__row {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__nav {
+		position: absolute;
+		top: 50%;
+		font-family: "ProximaNova";
+		font-size: 52.4px;
+		font-weight: 700;
+		text-transform: uppercase;
+		color: #bea67c;
+		transform: rotate(90deg);
+		margin: -100px 0px 0px 0px;
+		@media (max-width: 798px) {
+			font-size: 37px;
+			left: 20px;
+		}
+		@media (max-width: 798px) {
+			font-size: 27px;
+			left: 23px;
+		}
+		&::before {
+			content: "";
+			position: absolute;
+			top: 50%;
+			left: -65px;
+			width: 51px;
+			height: 4px;
+			background-color: #c0af91;
+			transform: translateY(-2px);
+			@media (max-width: 798px) {
+				left: -50px;
+				width: 40px;
+			}
+			@media (max-width: 498px) {
+				left: -50px;
+				width: 30px;
+			}
+		}
+	}
+	&__nav-dots {
+		position: fixed;
+		display: flex;
+		flex-direction: column;
+		top: 50%;
+		z-index: 10;
+		padding: 0px 0px 0px 20px;
+		& a {
+			display: inline-block;
+			width: 10px;
+			height: 10px;
+			background-color: #303030;
+			margin: 0px 0px 40px 0px;
+			border-radius: 50%;
+		}
+		& a.active {
+			width: 10px;
+			height: 10px;
+			background-color: #bea67c;
+			margin: 0px 0px 40px 0px;
+		}
+	}
+	&__title {
+		font-family: "ProximaNova";
+		font-size: 100px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		color: #bea67c;
+		margin: 0px 0px 40px 0px;
+		@media (max-width: 798px) {
+			font-size: 60px;
+		}
+		@media (max-width: 498px) {
+			font-size: 42px;
+		}
+	}
+
+	&__main {
+		display: flex;
+		flex-direction: column;
+		margin: 0px 0px 0px 25%;
+		position: relative;
+		top: 100px;
+	}
+
+	&__button {
+		display: inline-table;
+		font-family: "ProximaNova";
+		font-size: 14px;
+		line-height: 58px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		color: #ffffff;
+		border: 2px solid #ffffff;
+		width: 300px;
+		text-align: center;
+		transition: 0.5s;
+		margin: 0px 0px 40px 0px;
+		@media (max-width: 798px) {
+			width: 200px;
+			line-height: 48px;
+			font-size: 12px;
+		}
+		@media (max-width: 498px) {
+			width: 150px;
+			line-height: 34px;
+			font-size: 10px;
+		}
+		&:hover .content__button-arrow {
+			width: 44px;
+			@media (max-width: 498px) {
+				width: 24px;
+			}
+		}
+		&:hover {
+			background-color: #bea67c;
+		}
+	}
+	&__button-arrow {
+		position: relative;
+		display: inline-flex;
+		width: 34px;
+		height: 1px;
+		background-color: #ffffff;
+		align-items: center;
+		bottom: 3px;
+		margin: 0px 0px 0px 10px;
+		transition: 0.5s;
+		@media (max-width: 798px) {
+			width: 25px;
+		}
+		@media (max-width: 498px) {
+			width: 15px;
+		}
+		&:hover {
+			width: 44px;
+			@media (max-width: 798px) {
+				width: 35px;
+			}
+		}
+		&::after {
+			content: "";
+			width: 6px;
+			height: 1px;
+			background-color: #ffffff;
+			position: absolute;
+			right: -1px;
+			top: -2px;
+			transform: rotate(45deg);
+			z-index: 1;
+		}
+		&::before {
+			content: "";
+			width: 6px;
+			height: 1px;
+			background-color: #ffffff;
+			position: absolute;
+			right: -1px;
+			bottom: -2px;
+			transform: rotate(-45deg);
+			z-index: 1;
+		}
+	}
+	&__scroll {
+	}
+
+	&__scroll-mouse {
+		position: relative;
+		display: block;
+		width: 20px;
+		height: 30px;
+		border: 2px solid #ffffff;
+		border-radius: 8px;
+		margin: 0px 0px 20px 0px;
+		&:after {
+			content: "";
+			position: absolute;
+			display: flex;
+			width: 2px;
+			height: 14px;
+			background-color: #ffffff;
+			left: 50%;
+			transform: translateX(-1px);
+			opacity: 0.5;
+		}
+		&:before {
+			content: "";
+			position: absolute;
+			display: flex;
+			z-index: 10;
+			width: 4px;
+			height: 8px;
+			background-color: #ffffff;
+			left: 50%;
+			border-radius: 10px;
+			margin: 0px 0px 0px -2px;
+			transform: translateX(-2px);
+			animation: mouse 0.5s linear alternate infinite;
+		}
+	}
+	@keyframes mouse {
+		0% {
+			transform: translateY(0);
+		}
+		100% {
+			transform: translateY(4px);
+		}
+	}
+	&__scroll-arrow {
+		display: block;
+		width: 1px;
+		height: 60px;
+		background-color: #ffffff;
+		transform: translateX(10px);
+		margin: 0px 0px 20px 0px;
+		@media (max-width: 498px) {
+			height: 45px;
+		}
+		animation: arrow 3s linear infinite;
+		&::after {
+			content: "";
+			display: flex;
+			width: 1px;
+			height: 7px;
+			background-color: #ffffff;
+			transform: rotate(45deg);
+			position: absolute;
+			bottom: 0;
+			right: -3px;
+		}
+		&::before {
+			content: "";
+			display: flex;
+			width: 1px;
+			height: 7px;
+			background-color: #ffffff;
+			transform: rotate(-45deg);
+			position: absolute;
+			bottom: 0;
+			left: -3px;
+		}
+	}
+	@keyframes arrow {
+		0% {
+			opacity: 0.1;
+		}
+		50% {
+			opacity: 1;
+		}
+		100% {
+			opacity: 0.1;
+		}
+	}
+	&__scroll-scroll {
+		display: inline-block;
+		opacity: 0.1;
+		font-family: "ProximaNova";
+		font-size: 14px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		color: #ffffff;
+		transform: rotate(90deg);
+		transform-origin: 10px 8px;
+		animation: scroll 3s linear infinite;
+		@media (max-width: 498px) {
+			font-size: 12px;
+			transform-origin: 12px 4px;
+		}
+	}
+	@keyframes scroll {
+		0% {
+			opacity: 0.1;
+		}
+		50% {
+			opacity: 1;
+		}
+		100% {
+			opacity: 0.1;
+		}
+	}
+
+	&__other {
+		& p {
+			opacity: 0.5;
+			font-family: "ProximaNova";
+			font-size: 14px;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 0.2em;
+			color: #bea67c;
+			transform: rotate(90deg);
+			position: absolute;
+			top: 50%;
+			right: 13%;
+			@media (max-width: 498px) {
+				top: 65%;
+			}
+		}
+		& span {
+			position: absolute;
+			top: 50%;
+			right: -200px;
+			opacity: 0.2;
+			font-family: "ProximaNova";
+			font-size: 400px;
+			font-weight: 700;
+			text-transform: uppercase;
+			color: #a9946e;
+			transform: translateY(-140px);
+			@media (max-width: 498px) {
+				right: -150px;
+				font-size: 300px;
+				transform: translateY(-30px);
+			}
+		}
+		& a {
+			display: inline-block;
+			width: 23px;
+			height: 25px;
+			opacity: 0.5;
+			position: absolute;
+			bottom: 20px;
+			right: 20px;
+			transition: 0.5s;
+			&:hover {
+				opacity: 1;
+			}
+		}
+	}
+}
